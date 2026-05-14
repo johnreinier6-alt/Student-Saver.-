@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Saver</title>
+
+<style>
+:root{
+  --primary:#6A0DAD;
+  --primary-dark:#4A0878;
+  --bg: linear-gradient(145deg,#8B1FE8,#5A08A0,#2D0455);
+  --card:#FFFFFF;
+  --text:#1A0336;
+  --muted:#7A5A9E;
+}
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+/* SCREEN */
+.screen{
+  width:360px;
+  background:var(--card);
+  color:var(--text);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.3);
+  display:none;
+  overflow-y:auto;
+  max-height:90vh;
+}
+
+.screen.active{
+  display:block;
+}
+
+h1, h2{
+  color:var(--primary);
+  text-align:center;
+}
+
+.center{
+  text-align:center;
+  color:var(--muted);
+}
+
+p{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+ul{
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:var(--primary);
+  color:white;
+  font-weight:bold;
+  margin-top:15px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:var(--primary-dark);
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="screen active" id="screen1">
+  <h1>Student Saver</h1>
+  <p class="center">
+    Mobile Application<br><br>
+    Helping Students Save More and Supporting Local Businesses
+  </p>
+  <button onclick="nextScreen(2)">Next</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen" id="screen2">
+  <h2>Group 1</h2>
+  <ul>
+    <li>Amarante, Junel</li>
+    <li>Gonzales, Anne Thaddeus</li>
+    <li>Gonzales, John Kervin</li>
+    <li>Rodrigo, Sheene A.</li>
+    <li>San Juan, Hamir A.</li>
+    <li>Valmonte, Kenji</li>
+    <li>Valmonte, Ma. Katrina</li>
+  </ul>
+
+  <h2>Technical Assistance</h2>
+  <ul>
+    <li>Caranay, John Reinier P.</li>
+    <li>Regalado, Wendel Mark G.</li>
+  </ul>
+
+  <button onclick="nextScreen(3)">Next</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen" id="screen3">
+  <h2>Brief Description</h2>
+
+  <p>
+    Student Saver is a mobile application designed for students of Nueva Ecija University of Science and Technology that helps them find affordable products, student discounts, and budget-friendly services near the campus. The app connects students with local businesses such as food stalls, printing shops, cafés, and school supply stores that offer exclusive student deals.
+  </p>
+
+  <p>
+    The main target users are students who want to manage their daily expenses wisely, as well as small business owners who want to promote their products and services to the student community.
+  </p>
+
+  <p>
+    Student Saver solves the common problem of limited student budgets by making it easier to discover low-cost options for everyday needs. At the same time, it helps local businesses gain visibility and attract more student customers.
+  </p>
+
+  <p>
+    This app is useful because it saves money, saves time, supports local businesses, and creates a stronger campus community through smart and accessible digital deals.
+  </p>
+
+  <!-- ACTION BUTTONS -->
+  <button onclick="goToApp()">Continue to App</button>
+  <button onclick="nextScreen(1)">Back to Start</button>
+</div>
+
+<script>
+function nextScreen(num){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen'+num).classList.add('active');
+}
+
+function goToApp(){
+  alert("Welcome to Student Saver App!");
+  // You can replace this with:
+  // window.location.href = "home.html";
+}
+</script>
+
+</body>
+</html>
